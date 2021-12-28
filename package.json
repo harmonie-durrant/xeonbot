@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-sass": "^7.0.1",
     "wokcommands": "^1.5.3"
   },
   "engines": {
