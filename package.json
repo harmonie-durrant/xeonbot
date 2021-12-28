@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "wokcommands": "^1.5.3"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
