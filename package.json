@@ -1,7 +1,6 @@
 {
   "name": "xeon-networks",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +9,31 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.8.0",
+    "cron": "^1.8.2",
+    "discord.js": "^13.4.0",
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.1.4",
     "node-sass": "^7.0.1",
-    "wokcommands": "^1.5.3"
+    "npm": "latest",
+    "random-words": "^1.1.1",
+    "trello-events": "^0.1.7",
+    "wokcommands": "^1.5.3",
+    "word-definition": "^2.1.6"
   },
   "engines": {
     "node": "17.x"
-  }
+  },
+  "devDependencies": {
+    "node": "^16.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reuban-bryenton/xeonbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reuban-bryenton/xeonbot/issues"
+  },
+  "homepage": "https://github.com/reuban-bryenton/xeonbot#readme",
+  "description": ""
 }

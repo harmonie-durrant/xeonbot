@@ -1,10 +1,10 @@
 const { MessageEmbed } = require('discord.js')
 module.exports = {
-    name: 'kick',
+    name: 'ban',
     category: 'Moderation',
-    description: 'Kicks a user',
+    description: 'Bans a user',
 
-    permissions: ['KICK_MEMBERS'],
+    permissions: ['BAN_MEMBERS'],
 
     slash: 'both',
     testOnly: true,
@@ -23,7 +23,7 @@ module.exports = {
                 ephmeral: true
             }
         }
-        if (!target.kickable) {
+        if (!target.bannable) {
             return {
                 custom: true,
                 content: 'I cannot kick this user!',
@@ -34,12 +34,10 @@ module.exports = {
         args.shift()
         const reason = args.join(' ')
 
-        target.kick(reason)
-        let embed = new MessageEmbed()
-        .setTitle('User Kicked')
-        .setColor('#ff0000')
-        .addField('User:', `${target.username} *(${target.name}#${target.discriminator})*`)
-        message.guild.channels.cache.find(c => c.id === '865780332984139776').send({ embeds: [embed] })
+        target.ban(reason)
+        
+        
+
         return {
             custom: true,
             content: `Kicked ${target.user.tag} for ${reason}`,
