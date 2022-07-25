@@ -91,6 +91,7 @@ module.exports = {
             msgInt.editReply = message.edit
             if (message.channel.id != '924990746736623647') {
                 message.reply("You can only use this command in the verification channel!")
+              return
             }
         }
 

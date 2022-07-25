@@ -4,7 +4,7 @@ module.exports = {
   description: 'Simulates you joining the server',
   requiredPermissions: ['ADMINISTRATOR'],
   
-  callback: ({ message, args, text, client }) => {
+  callback: ({ message, client }) => {
     client.emit('guildMemberAdd', message.member)
   },
 }

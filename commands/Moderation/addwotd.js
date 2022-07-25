@@ -5,7 +5,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
   name: 'addwotd',
   category: 'Moderation',
-  description: 'Adds a new word to the word of the day queue',
+  description: 'Adds a new word to the word of the day queue (not working)',
   permissions: ['MANAGE_MESSAGES'],
   minArgs: 1,
   maxArgs: 1,
