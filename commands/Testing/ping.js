@@ -1,6 +1,7 @@
 module.exports = {
+  name: "ping",
   category: 'Testing',
-  aliases: ['getping', 'testping', 'p', 'stats', 'info', 'pinginfo'],
+  aliases: ['getping', 'testping', 'p', 'stats', 'pinginfo'],
   description: 'Replies with pong', // Required for slash commands
 
   slash: 'both', // Create both a slash and legacy command

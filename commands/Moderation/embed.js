@@ -3,10 +3,10 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
   name: 'embed',
   aliases: ['e', 'createembed'],
-  category: 'Testing',
+  category: 'Moderation',
   description: 'Creates a stylish embed',
 
-  Permissions: ['ADMINISTRATOR'],
+  requiredPermissions: ['ADMINISTRATOR'],
   minArgs: 2,
   expectedArgs: '<Channel mention> <JSON>',
   callback: ({ message, args }) => {

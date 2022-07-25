@@ -2,13 +2,21 @@ module.exports = {
     name: 'clear',
     aliases: ['cc', 'clean', 'clearchannel'],
     category: 'Moderation',
-    description: 'Clears all messages in current channel',
+    description: 'Clears x amount of messages in the current channel. (Defaults to 100)',
     permissions: ['MANAGE_MESSAGES'],
+    maxArgs: 1,
+    expectedArgs: '<amount>',
 
     callback: ({ message, args }) => {
-        const reply = `Cleared messages`
+        const reply = `Cleared messages! ✅`
+        var amount = 100
+        if(args.length > 0) {
+          amount = parseInt(args[0])
+        }
+        
+        
         // delete all messages in the channel that are less than 14 days old
-        message.channel.bulkDelete(100, true).then(() => {
+        message.channel.bulkDelete(amount, true).then(() => {
             message.channel.send(reply)
         })
     },

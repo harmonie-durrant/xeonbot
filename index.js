@@ -47,6 +47,11 @@ client.on('ready', async () => {
     .setDisplayName('Chronet Bot')
     .setCategorySettings([
       {
+        name: 'Utility',
+        emoji: '📋',
+        hidden: false
+      },
+      {
         name: 'Configuration',
         emoji: '⚙️',
         hidden: true
@@ -77,17 +82,21 @@ client.on('ready', async () => {
 
 })
 
-const eventsPath = path.join(__dirname, 'events');
-const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
+fs.readdir('./events/', (err, files) => { 
+    if (err) return console.error(err); 
+    files.forEach(file => {
+        const eventFunction = require(`./events/${file}`); 
+        if (eventFunction.disabled) return; 
+        const event = eventFunction.event || file.split('.')[0]; 
+        const emitter = (typeof eventFunction.emitter === 'string' ? client[eventFunction.emitter] : eventFunction.emitter) || client; 
+        const once = eventFunction.once; 
 
-for (const file of eventFiles) {
-	const filePath = path.join(eventsPath, file);
-	const event = require(filePath);
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	} else {
-		client.on(event.name, (...args) => event.execute(...args));
-	}
-}
+        try {
+            emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.run(...args)); 
+        } catch (error) {
+            console.error(error.stack); 
+        }
+    });
+});
 
 client.login(process.env['TOKEN']);
